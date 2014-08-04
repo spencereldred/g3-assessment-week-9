@@ -19,7 +19,7 @@ class ToDoApp < Sinatra::Application
       user = current_user
 
       users = User.where("id != #{user.id}")
-      todos = ToDoItem.all
+      todos = ToDoItem.where(completed: nil)
       erb :signed_in, locals: {current_user: user, users: users, todos: todos}
     else
       erb :signed_out
@@ -41,8 +41,9 @@ class ToDoApp < Sinatra::Application
     user = current_user
     todo_id = params[:id]
     todo = ToDoItem.find(todo_id)
-
-
+    todo.update(completed: true)
+    flash[:notice] = "ToDo completed"
+    redirect "/"
   end
 
   post "/registrations" do
