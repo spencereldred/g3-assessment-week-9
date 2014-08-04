@@ -1,0 +1,32 @@
+<div id="header">
+  <p>Welcome, <%= current_user.username %></p>
+
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="Sign Out" class="btn btn-link"/>
+  </form>
+</div>
+
+<div class="row">
+  <div class="col-lg-4" id="new_todo_form">
+    <form method="post" action="/todos">
+      <ul>
+        <li>
+          <label for="body">What do you need to do?</label>
+          <input type="text" name="body" id="body" class="form-control"/>
+        </li>
+        <li>
+          <input type="submit" value="Add ToDo" class="btn btn-success"/>
+        </li>
+      </ul>
+    </form>
+  </div>
+  <div class="col-lg-8">
+    <h2>ToDo List</h2>
+    <ul class="todos">
+      <% todos.each do |todo| %>
+          <li><%= todo.body %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

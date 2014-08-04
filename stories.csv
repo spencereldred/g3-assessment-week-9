@@ -1,0 +1,12 @@
+Id,Title,Labels,Iteration,Iteration Start,Iteration End,Type,Estimate,Current State,Created at,Accepted at,Deadline,Requested By,Description,URL,Owned By
+76160528,User can edit a ToDo,"",1,"Jul 28, 2014","Aug 3, 2014",feature,1,unstarted,"Aug 1, 2014",,,Hunter Gillane,"As a user
+When I click ""Edit"" next to a ToDo
+Then I should see a Edit ToDo form with the description of the ToDo pre-filled
+And when I edit to ToDo description and click ""Update ToDo""
+Then I should see ""ToDo updated""
+And I should see the updated ToDo description in my ToDo list",https://www.pivotaltracker.com/story/show/76160528,
+76160530,User can finish a ToDo,"",1,"Jul 28, 2014","Aug 3, 2014",feature,2,unstarted,"Aug 1, 2014",,,Hunter Gillane,"As a user
+When I click ""Complete"" next to a ToDo
+Then I should see ""ToDo completed""
+And I should not see that ToDo in my ToDo list anymore",https://www.pivotaltracker.com/story/show/76160530,
+76160532,User are seeing other users ToDos,"",1,"Jul 28, 2014","Aug 3, 2014",bug,,unstarted,"Aug 1, 2014",,,Hunter Gillane,Users are complaining that they are seeing ToDo items from other user's in their list. A user should only see ToDos that they created. ,https://www.pivotaltracker.com/story/show/76160532,
