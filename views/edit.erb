@@ -1,0 +1,25 @@
+<div id="header">
+  <p>Welcome, <%= current_user.username %></p>
+
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="Sign Out" class="btn btn-link"/>
+  </form>
+</div>
+<div class="row">
+  <h2>Editing a Todo!</h2>
+  <div class="col-lg-4" id="edit_todo_form">
+    <form method="post" action="/update">
+      <ul>
+        <li>
+          <label for="body">What do you need to do?</label>
+          <input type="text" name="body" id="body" class="form-control" value="<%= todo.body %>"/>
+          <input type="hidden" name="id" id="id" class="form-control" value="<%= todo.id %>"/>
+        </li>
+        <li>
+          <input type="submit" value="Update" class="btn btn-success"/>
+        </li>
+      </ul>
+    </form>
+  </div>
+ </div>

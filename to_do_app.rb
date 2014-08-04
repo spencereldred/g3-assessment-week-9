@@ -30,6 +30,21 @@ class ToDoApp < Sinatra::Application
     erb :register, locals: {user: User.new}
   end
 
+  get "/edit/:id" do
+    user = current_user
+    todo_id = params[:id]
+    todo = ToDoItem.find(todo_id)
+    erb :edit, locals: { current_user: user, todo: todo}
+  end
+
+  get "/completed/:id" do
+    user = current_user
+    todo_id = params[:id]
+    todo = ToDoItem.find(todo_id)
+
+
+  end
+
   post "/registrations" do
     user = User.new(username: params[:username], password: params[:password])
 
@@ -64,6 +79,14 @@ class ToDoApp < Sinatra::Application
 
     flash[:notice] = "ToDo added"
 
+    redirect "/"
+  end
+
+  post "/update" do
+    p "here are the params: #{params}"
+    todo_id = params[:id]
+    todo = ToDoItem.find(todo_id)
+    todo.update(body: params[:body])
     redirect "/"
   end
 
